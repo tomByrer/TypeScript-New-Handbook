@@ -2,14 +2,10 @@
 
 # Everyday Types
 
-In this chapter, we'll cover some of the most common types of values you'll find in JavaScript code, and explain the corresponding ways to describe those types in TypeScript.
-This isn't an exhaustive list, and future chapters will describe more ways to name and use other types.
-
 Types can also appear in many more *places* than just type annotations.
-As we learn about the types themselves, we'll also learn about the places where we can refer to these types to form new constructs.
+As we learn about the types themselves, we'll also learn about the places where we can refer to these types to form new constructs and more complex types.
 
 We'll start by reviewing the most basic and common types you might encounter when writing JavaScript or TypeScript code.
-These will later form the core "building blocks" of more complex types.
 
 __toc__
 
@@ -17,18 +13,20 @@ __toc__
 
 JavaScript has three main [primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) kinds of values: `string`, `number`, and `boolean`.
 Each has a corresponding type in TypeScript.
-As you might expect, these are the same names you'd see if you used the JavaScript `typeof` operator on a value of those types:
+These are the same names you'd see if you used the JavaScript `typeof` operator on a value of those types:
 
 * `string` represents string values like `"Hello, world"`
 * `number` is for numbers like `42`. JavaScript does not have a special runtime value for integers, so there's no equivalent to `int` or `float` - everything is simply `number`
 * `boolean` is for the two values `true` and `false`
 
-> The type names `String`, `Number`, and `Boolean` (starting with capital letters) are legal, but refer to some special built-in types that shouldn't appear in your code. *Always* use `string`, `number`, or `boolean`.
+> Type names `String`, `Number`, and `Boolean` (starting with capital letters) are legal, but refer to some special built-in types that shouldn't appear in your code. *Always* use `string`, `number`, or `boolean`.
 
 ## Arrays
 
-To specify the type of an array like `[1, 2, 3]`, you can use the syntax `number[]`; this syntax works for any type (e.g. `string[]` is an array of strings, and so on).
+To specify the type of an array like `[1, 2, 3]`, you can use the syntax `number[]`.
 You may also see this written as `Array<number>`, which means the same thing.
+
+Similar syntax works for any type (e.g. `string[]` is an array of strings, `Array<boolean>` is an array of booleans, and so on).
 We'll learn more about the syntax `T<U>` when we cover *generics*.
 
 > Note that `[number]` is a different thing; refer to the section on *tuple types*.
@@ -541,3 +539,8 @@ function liveDangerously(x?: number | null) {
 ```
 
 Just like other type assertions, this doesn't change the runtime behavior of your code, so it's important to only use `!` when you know that the value *can't* be `null` or `undefined`.
+
+### Outro
+
+This isn't an exhaustive list, and future chapters will describe more ways to name and use other types.
+
