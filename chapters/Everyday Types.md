@@ -57,7 +57,7 @@ The compiler flag `noImplicitAny` will cause any *implicit* `any` to be flagged 
 
 ## Type Annotations on Variables
 
-When you declare a variable using `const`, `var`, or `let`, you can optionally add a type annotation to explicitly specify the type of the variable:
+When you declare a variable using `const`, `var`, or `let`, you can optionally add a type annotation to explicitly specify the type of the variable.  The syntax is: colon immediately after the variable name, space, then the type, like so:
 
 ```ts
 let myName: string = "Alice";
@@ -67,8 +67,8 @@ let myName: string = "Alice";
 > TypeScript doesn't use "types on the left"-style declarations like `int x = 0;`
 > Type annotations will always go *after* the thing being typed.
 
-In most cases, though, this isn't needed.
-Wherever possible, TypeScript tries to automatically *infer* the types in your code.
+Typically this isn't needed.
+When possible, TypeScript tries to automatically *infer* the types in your code.
 For example, the type of a variable is inferred based on the type of its initializer:
 
 ```ts
@@ -76,7 +76,7 @@ For example, the type of a variable is inferred based on the type of its initial
 let myName = "Alice";
 ```
 
-For the most part you don't need to explicitly learn the rules of inference.
+Usually you don't need to explicitly learn the rules of inference.
 If you're starting out, try using fewer type annotations than you think - you might be surprised how few you need for TypeScript to fully understand what's going on.
 
 ## Functions
