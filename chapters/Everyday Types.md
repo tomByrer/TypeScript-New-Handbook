@@ -196,16 +196,16 @@ function printName(obj: { first: string, last?: string}) {
 
 ## Union Types
 
-TypeScript's type system allows you to build new types out of existing ones using a large variety of operators.
+TypeScript allows you to build new types out of existing ones using a large variety of operators.
 Now that we know how to write a few types, it's time to start *combining* them in interesting ways.
 
 ### Defining a Union Type
 
-The first way to combine types you might see is a *union* type.
-A union type is type formed from two or more other types, representing values that may be *any one* of those types.
+Two or more different types, called *members*, combine to make a *union type*.
 We refer to each of these types as the union's *members*.
+Member values that may be *any one* of the listed types, but may not have a value that is not explicitaly listed.
 
-Let's write a function that can operate on strings or numbers:
+You code a union simular to other types; after the variable name type a colon, space, the each type divided by a 'vertical bar' (`|`).  This example is a unon of strings or numbers:
 
 ```ts
 function printId(id: number | string) {
@@ -222,7 +222,6 @@ printId([1, 2]);
 ### Working with Union Types
 
 It's easy to *provide* a value matching a union type - simply provide a type matching any of the union's members.
-If you *have* a value of a union type, how do you work with it?
 
 TypeScript will only allow you to do things with the union if that thing is valid for *every* member of the union.
 For example, if you have the union `string | number`, you can't use methods that are only available on `string`:
@@ -250,7 +249,7 @@ function printId(id: number | string) {
 }
 ```
 
-Another example is to use a function like `Array.isArray`:
+If one or more of the member types is an array, use a function like `Array.isArray`:
 
 ```ts
 function welcomePeople(x: string[] | string) {
@@ -264,7 +263,7 @@ function welcomePeople(x: string[] | string) {
 }
 ```
 
-Notice that in the `else` branch, we don't need to do anything special - if `x` wasn't a `string[]`, then it must have been a `string`.
+Notice that in the `else` branch: since there is only two types and it wasn't a `string[]` (`Array<string>`), then it must have been a non-array `string`.
 
 Sometimes you'll have a union where all the members have something in common.
 For example, both arrays and strings have a `slice` method.
@@ -278,10 +277,9 @@ function getFirstThree(x: number[] | string) {
 ```
 
 > It might be confusing that a *union* of types appears to have the *intersection* of those types' properties.
-> This is not an accident - the name *union* comes from type theory.
+> The name *union* comes from type theory.
 > The *union* `number | string` is composed by taking the union *of the values* from each type.
 > Notice that given two sets with corresponding facts about each set, only the *intersection* of those facts applies to the *union* of the sets themselves.
-> For example, if we had a room of tall people wearing hats, and another room of Spanish speakers wearings hats, after combining those rooms, the only thing we know about *every* person is that they must be wearing a hat.
 
 ## Type Aliases
 
