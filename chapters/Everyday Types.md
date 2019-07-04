@@ -86,8 +86,7 @@ TypeScript allows you to specify the types of both the input and output values o
 
 ### Parameter Type Annotations
 
-When you declare a function, you can add type annotations after each parameter to declare what kinds of parameters the function accepts.
-Parameter type annotations go after the parameter name:
+When you declare a function, you can add type annotations after each parameter name to declare what kinds of parameters the function accepts.
 
 ```ts
 // Parameter type annotation
@@ -118,7 +117,7 @@ function getFavoriteNumber(): number {
 }
 ```
 
-Much like variable type annotations, you usually don't need a return type annotation because TypeScript will infer the function's return type based on its `return` statements.
+Similar to variable type annotations, you usually don't need a return type annotation because TypeScript will infer the function's return type based on its `return` statements.
 The type annotation in the above example doesn't change anything.
 Some codebases will explicitly specify a return type for documentation purposes, to prevent accidental changes, or just for personal preference.
 
@@ -167,10 +166,10 @@ You can use `,` or `;` to separate the properties, and the last separator is opt
 The type part of each property is also optional.
 If you don't specify a type, it will be assumed to be `any`.
 
-### Optional Properties
+### 
 
 Object types can also specify that some or all of their properties are *optional*.
-To do this, add a `?` after the property name:
+To do this, add a `?` each the property name you want to be optional.:
 
 ```ts
 function printName(obj: { first: string, last?: string}) {
@@ -186,8 +185,8 @@ Because of this, when you *read* from an optional property, you'll have to check
 
 ```ts
 function printName(obj: { first: string, last?: string}) {
+  console.log(obj.first.toUpperCase());
   // Error - might crash if 'obj.last' wasn't provided!
-  console.log(obj.last.toUpperCase());
   if (obj.last !== undefined) {
     // OK
     console.log(obj.last.toUpperCase());
