@@ -302,14 +302,14 @@ function printCoord(pt: Point) {
 printCoord({ x: 100, y: 100 });
 ```
 
-You can actually use a type alias to give a name to any type at all, not just an object type.
+You can use a type alias to give a name to any type at all, not just an object type.
 For example, a type alias can name a union type:
 
 ```ts
 type ID = number | string;
 ```
 
-Note that aliases are *only* aliases - you cannot use type aliases to create different/distinct "versions" of the same type.
+Note that aliases are *only* aliases - you cannot use them to create different/distinct "versions" of the same type.
 When you use the alias, it's exactly as if you had written the aliased type.
 In other words, this code might *look* illegal, but is OK according to TypeScript because both types are aliases for the same type:
 
@@ -346,17 +346,16 @@ Being concerned only with the structure and capabilities of types is why we call
 
 ### Differences Between Type Aliases and Interfaces {#interface-vs-alias}
 
-Type aliases and interfaces are very similar, and in many cases you can choose between them freely.
+Type aliases and interfaces are very similar, and often you can choose between them freely.
 Here are the most relevant differences between the two that you should be aware of.
-You'll learn more about these concepts in later chapters, so don't worry if you don't understand all of these right away.
 
-* Interfaces may be `extend`ed, but not type aliases. We'll discuss this later, but it means that interfaces can provide more guarantees when creating new types out of other types.
+* Interfaces may be `extend`ed, but not type aliases. (Detailed in a later chapter.)
 * Type aliases may not participate in declaration merging, but interfaces can.
 * Interfaces may only be used to declare object types.
 * Interface names will *always* appear in their original form in error messages, but *only* when they are used by name.
 * Type alias names *may* appear in error messages, sometimes in place of the equivalent anonymous type (which may or may not be desirable).
 
-For the most part, you can choose based on personal preference, and TypeScript will tell you if it needs something to be the other kind of declaration.
+Often you can choose based on personal preference, then TypeScript will tell you if it needs something to be the other kind of declaration.
 
 ## Type Assertions
 
